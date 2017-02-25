@@ -1,3 +1,4 @@
-Escriba aqui su número de cédula, nombre y apellido separado por coma
+﻿Escriba aqui su número de cédula, nombre y apellido separado por coma
 3298639,Fernando,Mancía
 4844530,Khevin,Roig
+4148567,María Clara, Berendsen

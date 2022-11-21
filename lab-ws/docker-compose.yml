@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  server:
+    build: 
+      dockerfile: DockerfileServer
+    command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+    ports:
+        - 8080:8080
+        - 9990:9990
+        - 8009:8009
+  client:
+    build: 
+      dockerfile: DockerfileClient
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+  db:
+    image: postgres:13.0-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sd
+    

@@ -1,0 +1,9 @@
+FROM python:3.9.6-alpine
+
+WORKDIR /usr/src/app
+
+RUN pip install --no-cache-dir --upgrade pip \
+  && pip install --no-cache-dir requests==2.28.1
+
+COPY cliente-python .
+RUN sed -i 's/localhost/server/' ConfigFile.properties

@@ -1,2 +1,2 @@
-Tareas SD
-Bienvenidos 2021
+Laboratorio de Sistemas Distribuidos
+FP - UNA

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  java:
+    build: .
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ./:/usr/src/
+      - vscode:/root/.vscode-server/extensions
+      - vscode_insiders:/root/.vscode-server-insiders
+  db:
+    image: postgres:13.0-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sd
+volumes:
+  vscode:
+  vscode_insiders:

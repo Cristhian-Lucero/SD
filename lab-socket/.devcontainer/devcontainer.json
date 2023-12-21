@@ -1,0 +1,17 @@
+{
+	"name": "entorno_socket",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "java",
+	"workspaceFolder": "/usr/src/",
+	"shutdownAction": "stopCompose",
+
+	"extensions": [
+		"eamodio.gitlens",
+		"DotJoshJohnson.xml",
+		"vscjava.vscode-java-pack",
+		"vscjava.vscode-maven",
+		"ckolkman.vscode-postgres"
+	],
+//Después de cargar todos los archivos, configura git para que tome el directorio como un directorio seguro, luego inicializa el servidor
+	"postStartCommand": "cd /usr/src/ProyectoJava && git config --global --add safe.directory /usr/src"
+}

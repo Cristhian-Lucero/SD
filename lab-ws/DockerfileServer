@@ -1,0 +1,14 @@
+#builder
+FROM maven:3.8.6-eclipse-temurin-8-alpine as builder
+WORKDIR /usr/src/servidor
+COPY servidor .
+RUN sed -i 's/localhost/db/' /usr/src/servidor/personas/src/main/java/py/una/pol/personas/dao/Bd.java
+RUN mvn clean install -e -X -U -f personas/pom.xml
+#Wildfly
+FROM jboss/wildfly:24.0.0.Final
+
+RUN /opt/jboss/wildfly/bin/add-user.sh admin admin --silent
+COPY --from=builder /usr/src/servidor/personas/target/personas.war /opt/jboss/wildfly/standalone/deployments/
+
+
+ 

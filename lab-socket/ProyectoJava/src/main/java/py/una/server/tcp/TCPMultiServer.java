@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
 
-
-
 public class TCPMultiServer {
 
 	//variables compartidas
